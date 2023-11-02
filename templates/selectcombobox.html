@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Всплывающий список </title>
+</head>
+<body style="background-color: {{ color }}">
+    <h2> Выбор цветов радуги </h2>
+        <form id="colorForm" action="{% url 'change_color' %}" method="post">
+            {% csrf_token %}
+            <label> Выберите значение: </label>
+            <select name="color" onchange="submit()">
+                <option  value = red {% if color == "red" %} selected {% endif %}> каждый </option>
+                <option  value = orange {% if color == "orange" %} selected  {% endif %}> охотник </option>
+                <option  value = yellow {% if color == "yellow" %} selected  {% endif %}> желает </option>
+                <option  value = green {% if color == "green" %} selected  {% endif %}> знать </option>
+                <option  value = cyan {% if color == "cyan" %} selected  {% endif %}> где </option>
+                <option  value = blue {% if color == "blue" %} selected  {% endif %}> сидят </option>
+                <option  value = violet {% if color == "violet" %} selected  {% endif %}> фазаны </option>
+            </select>
+    </form>
+</body>
+</html>

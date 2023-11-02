@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Работа с файлами </title>
+</head>
+<body>
+    <h1> Работа с файлами </h1>
+    <form action="{% url 'handle_dates' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" name="read_file" value="Прочитать файл">
+    </form>
+    <h2> Содержимое файла: </h2>
+    <ul>
+        {% for date in dates %}
+        <li> {{ date }} </li>
+        {% endfor %}
+    </ul>
+
+    <form action="{% url 'handle_dates' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" name="show_spring_dates" value="Вывести весенние даты">
+    </form>
+    <h2> Весенние даты: </h2>
+    <ul>
+        {% for date in spring_dates %}
+        <li> {{ date }} </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
