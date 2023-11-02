@@ -1,8 +1,10 @@
-from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from django.shortcuts import render
+
 from .forms import RadioForm
+
+
 def index(request):
     return HttpResponse("Hello, world! You're at the polls index.")
 def calculate(request):
@@ -106,6 +108,9 @@ def sum_numbers(request):
     return render(request, 'training_app/checkbox.html', {'total_sum': total_sum})
 def select(request, Result="rus"):
     return render(request, 'training_app/select.html', {"result": Result})
+
+
+# noinspection PyRedeclaration
 def index(request):
     return render(request, 'training_app/index.html')
 def select(request, Result="rus"):
